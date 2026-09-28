@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitGear | Indumentaria Deportiva Premium</title>
-    <!-- Fuentes Google: Montserrat para textos y Bebas Neue para títulos impactantes -->
+    <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
 
@@ -25,6 +26,14 @@
             </ul>
 
             <div class="nav-actions">
+                <!-- Zona de Usuario / Auth -->
+                <div id="authNavZone">
+                    <div class="auth-buttons" id="authButtons">
+                        <button class="btn-auth-login" id="openLoginBtn">Ingresar</button>
+                        <button class="btn-auth-register" id="openRegisterBtn">Registro</button>
+                    </div>
+                </div>
+
                 <button class="cart-btn-trigger" id="openCartBtn">
                     🛒 <span>Carrito</span>
                     <span class="cart-badge" id="cartCount">0</span>
@@ -34,37 +43,79 @@
         </nav>
     </header>
 
+    <!-- MODAL DE LOGIN / REGISTRO (LOCALSTORAGE) -->
+    <div class="auth-overlay" id="authModal">
+        <div class="auth-container">
+            <button class="modal-close" id="closeAuthBtn">✕</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin">Iniciar Sesión</button>
+                <button class="auth-tab" id="tabRegister">Registrarse</button>
+            </div>
+
+            <!-- Formulario Login -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="usuario@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit-auth">Ingresar a mi Cuenta</button>
+            </form>
+
+            <!-- Formulario Registro -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" class="form-input" id="regName" placeholder="Tu Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" class="form-input" id="regEmail" placeholder="usuario@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-input" id="regPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit-auth">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-content">
             <span class="hero-tag">Rendimiento & Pasión</span>
             <h1 class="hero-title">INDUMENTARIA DEPORTIVA DE ALTA GAMA</h1>
-            <p class="hero-description">Camisetas técnicas y conjuntos de Fútbol y Baloncesto diseñados para ofrecer máximo confort, transpirabilidad y la identidad que necesitas en la cancha.</p>
+            <p class="hero-description">Camisetas técnicas y conjuntos de Fútbol y Baloncesto diseñados para ofrecer máximo confort y estilo en la cancha.</p>
             <a href="#catalogo" class="btn-primary">Explorar Colección</a>
         </div>
     </section>
 
-    <!-- BANNER DE CONFIANZA / SEGURIDAD (Resuelve objeción planteada en el proyecto) -->
+    <!-- TRUST BANNER -->
     <section class="trust-banner" id="garantia">
         <div class="trust-item">
             <div class="trust-icon">🔒</div>
             <div class="trust-text">
                 <h4>Pagos 100% Seguros</h4>
-                <p>Pasarelas cifradas e integración con Nequi, Daviplata y PSE.</p>
+                <p>Integración con Nequi, Daviplata y PSE.</p>
             </div>
         </div>
         <div class="trust-item">
             <div class="trust-icon">🚚</div>
             <div class="trust-text">
                 <h4>Envíos Nacionales</h4>
-                <p>Garantía de entrega y rastreo de pedido en tiempo real.</p>
+                <p>Seguimiento de tu pedido en todo momento.</p>
             </div>
         </div>
         <div class="trust-item">
             <div class="trust-icon">✔</div>
             <div class="trust-text">
                 <h4>Calidad Garantizada</h4>
-                <p>Textiles de alta durabilidad y tecnología de secado rápido.</p>
+                <p>Textiles transpirables de secado rápido.</p>
             </div>
         </div>
     </section>
@@ -74,7 +125,7 @@
         <div class="section-header">
             <div class="section-title">
                 <h2>CATÁLOGO OFICIAL</h2>
-                <p>Selecciona tu disciplina y elige la equipación ideal para tu rendimiento.</p>
+                <p>Haz clic en cualquier producto para ver tallas y personalizar tu pedido.</p>
             </div>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Todos</button>
@@ -84,20 +135,62 @@
         </div>
 
         <div class="products-grid" id="productsContainer">
-            <!-- Renderizado dinámico vía JavaScript -->
+            <!-- Render dinámico -->
         </div>
     </section>
 
-    <!-- OVERLAY Y PANORAMA DEL CARRITO LATERAL -->
+    <!-- MODAL DETALLE DE PRODUCTO -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close" id="closeModalBtn">✕</button>
+            <div class="modal-img-container">
+                <img id="modalProductImg" src="" alt="Producto FitGear">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title" id="modalProductTitle">Nombre del Producto</h2>
+                <div class="modal-price" id="modalProductPrice">$0</div>
+                <p class="modal-desc" id="modalProductDesc">Descripción detallada...</p>
+
+                <!-- Selección de Talla -->
+                <div class="option-group">
+                    <span class="option-label">Selecciona tu Talla:</span>
+                    <div class="size-selector">
+                        <button class="size-btn selected">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+                </div>
+
+                <!-- Contador de Cantidad -->
+                <div class="option-group">
+                    <span class="option-label">Cantidad:</span>
+                    <div class="quantity-control">
+                        <button class="qty-btn" id="decreaseQtyBtn">-</button>
+                        <input type="text" class="qty-input" id="productQtyInput" value="1" readonly>
+                        <button class="qty-btn" id="increaseQtyBtn">+</button>
+                    </div>
+                </div>
+
+                <!-- Personalización Opcional -->
+                <div class="option-group">
+                    <span class="option-label">Personalización (Nombre y Número / Opcional):</span>
+                    <input type="text" class="custom-input" id="customDorsalInput" placeholder="Ej: NELSON #24">
+                </div>
+
+                <button class="btn-modal-add" id="addToCartFromModalBtn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWER DEL CARRITO -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <aside class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
             <h3>TU CARRITO</h3>
             <button class="close-cart" id="closeCartBtn">✕</button>
         </div>
-        <div class="cart-items-container" id="cartItems">
-            <!-- Elementos agregados dinámicamente -->
-        </div>
+        <div class="cart-items-container" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-total-row">
                 <span>TOTAL:</span>
@@ -134,7 +227,7 @@
         </div>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT -->
-    <script src="index.js"></script>
+    <!-- LÓGICA JAVASCRIPT COMPLETA -->
+    <script src="index.js"> </script>
 </body>
 </html>
