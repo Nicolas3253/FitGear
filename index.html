@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGear | Indumentaria Deportiva Premium</title>
+    <!-- Fuentes Google: Montserrat para textos y Bebas Neue para títulos impactantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="brand-logo">FIT<span>GEAR</span></a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#garantia">Garantía</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="cart-btn-trigger" id="openCartBtn">
+                    🛒 <span>Carrito</span>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="hero-tag">Rendimiento & Pasión</span>
+            <h1 class="hero-title">INDUMENTARIA DEPORTIVA DE ALTA GAMA</h1>
+            <p class="hero-description">Camisetas técnicas y conjuntos de Fútbol y Baloncesto diseñados para ofrecer máximo confort, transpirabilidad y la identidad que necesitas en la cancha.</p>
+            <a href="#catalogo" class="btn-primary">Explorar Colección</a>
+        </div>
+    </section>
+
+    <!-- BANNER DE CONFIANZA / SEGURIDAD (Resuelve objeción planteada en el proyecto) -->
+    <section class="trust-banner" id="garantia">
+        <div class="trust-item">
+            <div class="trust-icon">🔒</div>
+            <div class="trust-text">
+                <h4>Pagos 100% Seguros</h4>
+                <p>Pasarelas cifradas e integración con Nequi, Daviplata y PSE.</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">🚚</div>
+            <div class="trust-text">
+                <h4>Envíos Nacionales</h4>
+                <p>Garantía de entrega y rastreo de pedido en tiempo real.</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">✔</div>
+            <div class="trust-text">
+                <h4>Calidad Garantizada</h4>
+                <p>Textiles de alta durabilidad y tecnología de secado rápido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGOS / PRODUCTOS -->
+    <section class="catalog-section" id="catalogo">
+        <div class="section-header">
+            <div class="section-title">
+                <h2>CATÁLOGO OFICIAL</h2>
+                <p>Selecciona tu disciplina y elige la equipación ideal para tu rendimiento.</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="futbol">Fútbol</button>
+                <button class="filter-btn" data-filter="baloncesto">Baloncesto</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsContainer">
+            <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+    </section>
+
+    <!-- OVERLAY Y PANORAMA DEL CARRITO LATERAL -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>TU CARRITO</h3>
+            <button class="close-cart" id="closeCartBtn">✕</button>
+        </div>
+        <div class="cart-items-container" id="cartItems">
+            <!-- Elementos agregados dinámicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>TOTAL:</span>
+                <span id="cartTotalAmount">$0 COP</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">Finalizar Compra Segura</button>
+        </div>
+    </aside>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h5>FITGEAR</h5>
+                <p>Plataforma e-commerce especializada en indumentaria deportiva para deportistas y aficionados exigentes.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Categorías</h5>
+                <ul>
+                    <li>Camisetas de Fútbol</li>
+                    <li>Conjuntos de Baloncesto</li>
+                    <li>Ediciones Especiales</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contacto & Soporte</h5>
+                <p>📍 Piedecuesta, Santander</p>
+                <p>✉ contacto@fitgear.com.co</p>
+                <p>📱 +57 300 000 0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FitGear - Desarrollado para Proyecto Formativo SENA (CIMI Piedecuesta).</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script src="index.js"></script>
+</body>
+</html>
