@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGear | Catálogo Completo</title>
+    
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CDN Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="catalogo.css" />
+    
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="brand-logo">FIT<span>GEAR</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html" class="active">Catálogo Completo</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn-trigger" id="openCartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i> <span>Carrito</span>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CATÁLOGO PRINCIPAL -->
+    <main class="catalog-container">
+
+        <!-- FILTROS -->
+        <aside class="filters-sidebar">
+            <div class="filters-title">
+                <span>Filtros</span>
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Buscar Camiseta</label>
+                <input type="text" class="filter-input" id="searchInput" placeholder="Ej: Local, Pro, Jersey...">
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Categoría</label>
+                <select class="filter-select" id="categoryFilter">
+                    <option value="all">Todas las disciplinas</option>
+                    <option value="futbol">Fútbol</option>
+                    <option value="baloncesto">Baloncesto</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Ordenar Por</label>
+                <select class="filter-select" id="sortFilter">
+                    <option value="default">Por defecto</option>
+                    <option value="price-asc">Precio: Menor a Mayor</option>
+                    <option value="price-desc">Precio: Mayor a Menor</option>
+                    <option value="name-asc">Nombre: A - Z</option>
+                    <option value="name-desc">Nombre: Z - A</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Precio Máximo</label>
+                <input type="range" class="filter-input" id="priceRange" min="50000" max="150000" step="5000" value="150000">
+                <div class="price-range-display">
+                    <span>$50.000</span>
+                    <span id="maxPriceLabel">$150.000 COP</span>
+                </div>
+            </div>
+
+            <button class="btn-reset-filters" id="resetFiltersBtn">
+                <i class="fa-solid fa-rotate-left"></i> Limpiar Filtros
+            </button>
+        </aside>
+
+        <!-- GRILLA -->
+        <section class="catalog-main">
+            <div class="catalog-header">
+                <div>
+                    <h1>Catálogo Oficial</h1>
+                    <span class="results-count" id="resultsCount">Cargando productos...</span>
+                </div>
+            </div>
+
+            <div class="products-grid" id="catalogGrid"></div>
+        </section>
+
+    </main>
+
+    <!-- MODAL PRODUCTO DETALLE -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-card">
+            <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="Producto">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title" id="modalTitle">Nombre</h2>
+                <div class="modal-price" id="modalPrice">$0 COP</div>
+                <p class="modal-desc" id="modalDesc">Descripción</p>
+
+                <div>
+                    <label class="option-label">Selecciona tu Talla:</label>
+                    <div class="size-selector" id="sizeSelector">
+                        <button class="size-btn active" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="option-label">Cantidad:</label>
+                    <div class="quantity-control">
+                        <div class="qty-box">
+                            <button class="qty-btn" id="qtyMinus">-</button>
+                            <span class="qty-val" id="qtyVal">1</span>
+                            <button class="qty-btn" id="qtyPlus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="option-label">Personalización (Nombre y Número / Opcional):</label>
+                    <input type="text" class="custom-input" id="customInput" placeholder="Ej: NELSON #24">
+                </div>
+
+                <button class="btn-add-cart-modal" id="addToCartModalBtn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWER CARRITO -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>TU CARRITO</h3>
+            <button class="close-cart" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>TOTAL:</span>
+                <span id="cartTotalAmount">$0 COP</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">Finalizar Compra Segura</button>
+        </div>
+    </aside>
+
+    <script src="catalogo.js"> </script>
+</body>
+</html>
