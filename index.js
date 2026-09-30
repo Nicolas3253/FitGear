@@ -7,8 +7,7 @@ const products = [
     name: "Camiseta Local Fútbol Pro 2026",
     category: "futbol",
     price: 85000,
-    image:
-      "https://images.unsplash.com/photo-1577212017308-55c4d60d2609?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1577212017308-55c4d60d2609?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "Edición especial de alto rendimiento. Tejido microporoso que absorbe el sudor rápidamente y costuras reinforced para máxima comodidad.",
   },
@@ -17,8 +16,7 @@ const products = [
     name: "Camiseta Visitante Baloncesto Pro",
     category: "baloncesto",
     price: 90000,
-    image:
-      "https://plus.unsplash.com/premium_photo-1674164229916-214a5ca5e9d3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://plus.unsplash.com/premium_photo-1674164229916-214a5ca5e9d3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "Malla de poliéster transpirable con silueta holgada que permite total libertad de movimiento en cada tiro.",
   },
@@ -27,8 +25,7 @@ const products = [
     name: "Conjunto Entrenamiento Fútbol",
     category: "futbol",
     price: 120000,
-    image:
-      "https://plus.unsplash.com/premium_photo-1783088311791-0ad06a26536d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D/futbol-2.jpg",
+    image: "https://plus.unsplash.com/premium_photo-1783088311791-0ad06a26536d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D/futbol-2.jpg",
     description:
       "Incluye camiseta técnica y pantaloneta con ajuste elástico. Diseñada para soportar entrenamientos de alta exigencia física.",
   },
@@ -37,8 +34,7 @@ const products = [
     name: "Jersey Baloncesto Legend Edition",
     category: "baloncesto",
     price: 95000,
-    image:
-      "https://images.unsplash.com/photo-1672369139633-408617172df0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dimagenes/baloncesto-2.jpg",
+    image: "https://images.unsplash.com/photo-1672369139633-408617172df0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dimagenes/baloncesto-2.jpg",
     description:
       "Inspirada en la cultura urbana deportiva. Bordados de alta precisión y tela suave al contacto con la piel.",
   },
@@ -106,7 +102,7 @@ function checkAuthStatus() {
   if (currentUser) {
     authNavZone.innerHTML = `
                     <div class="user-profile-badge">
-                        👤 <span>${currentUser.name}</span>
+                        <i class="fa-solid fa-user"></i> <span>${currentUser.name}</span>
                         <button class="btn-logout" id="logoutBtn">Salir</button>
                     </div>
                 `;
@@ -369,7 +365,7 @@ function updateCartUI() {
                                 <button class="cart-item-qty-btn" onclick="changeCartQty('${item.cartItemId}', 1)">+</button>
                             </div>
                         </div>
-                        <button class="btn-remove-item" onclick="removeFromCart('${item.cartItemId}')">✕</button>
+                        <button class="btn-remove-item" onclick="removeFromCart('${item.cartItemId}')"><i class="fa-solid fa-trash-can"></i></button>
                     `;
       cartItemsContainer.appendChild(itemElement);
     });
@@ -407,26 +403,16 @@ filterBtns.forEach((btn) => {
 
 menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 
-checkoutBtn.addEventListener("click", () => {
-  if (cart.length === 0) {
-    alert("El carrito está vacío.");
-    return;
-  }
-
-  const currentUser = getCurrentUser();
-  if (!currentUser) {
-    alert("Por favor inicia sesión o regístrate para proceder con tu pedido.");
-    closeCart();
-    openAuthModal("login");
-    return;
-  }
-
-  alert(
-    `¡Gracias por tu compra, ${currentUser.name}! Tu pedido se enviará al correo ${currentUser.email}. (Simulación SENA).`,
-  );
-  cart = [];
-  updateCartUI();
-  closeCart();
+checkoutBtn.addEventListener('click', () => {
+    if(cart.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+    }
+    // Guardar carrito para leerlo en checkout.html
+    localStorage.setItem('fitgear_cart', JSON.stringify(cart));
+    
+    // Redirigir directamente a la pantalla dedicada de pago
+    window.location.href = 'pago.html';
 });
 
 // Inicialización
