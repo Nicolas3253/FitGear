@@ -6,7 +6,7 @@ const products = [
     category: "futbol",
     price: 85000,
     desc: "Edición especial de alto rendimiento. Tejido microporoso que absorbe la humedad.",
-    image: "imagenes/futbol-1.jpg",
+    image: "https://descuentoff.cl/media/deals/2022/07/id-2647/3025_-_camiseta_seleccion_chilena.jpeg",
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const products = [
     category: "baloncesto",
     price: 90000,
     desc: "Malla de poliéster transpirable con silueta holgada que permite libertad de movimiento.",
-    image: "imagenes/baloncesto-1.jpg",
+    image: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b1268332-c9cd-4932-8803-dafab4f7a3d7/adn-camiseta-de-baloncesto-nike-dri-fit-jgNLts.png",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const products = [
     category: "futbol",
     price: 120000,
     desc: "Incluye camiseta técnica y pantaloneta con ajuste elástico. Diseñado para alta exigencia.",
-    image: "imagenes/futbol-2.jpg",
+    image: "https://contents.mediadecathlon.com/m27025008/k$fd164a0a5f9c91bcfd8dd99d5c781982/picture.jpg?format=auto&f=3000x0",
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const products = [
     category: "baloncesto",
     price: 95000,
     desc: "Inspirada en el corte clásico del basketball noventero con acabados premium.",
-    image: "imagenes/baloncesto-2.jpg",
+    image: "https://tse4.mm.bing.net/th/id/OIP.hxyUg8bvNbYkipZFBQZMdwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const products = [
     category: "futbol",
     price: 110000,
     desc: "Detalles sublimados en alta definición con escudo en relieve.",
-    image: "imagenes/futbol-1.jpg",
+    image: "https://fenixdeportes.com.co/cdn/shop/files/Disenosintitulo_47.png?v=1758235211&width=1445",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const products = [
     category: "baloncesto",
     price: 105000,
     desc: "Diseño elegante en tono negro satinado con costuras reforzadas.",
-    image: "imagenes/baloncesto-1.jpg",
+    image: "https://www.basketballjerseyworld.com/cdn/shop/products/Peja-Kings-Swingman-1.jpg?v=1658571590",
   },
 ];
 
