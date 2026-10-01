@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitGear | Finalizar Compra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="pago.css" />
+  </head>
+  <body>
+    <header class="encabezado-pago">
+      <a href="index.html" class="logo-marca">FIT<span>GEAR</span></a>
+      <a href="index.html" class="volver-tienda">
+        <i class="fa-solid fa-arrow-left"></i> Volver a la Tienda
+      </a>
+    </header>
+
+    <main class="contenedor-pago">
+      <div class="principal-pago">
+        <div class="caja-pago">
+          <h2 class="titulo-seccion">
+            <i class="fa-solid fa-truck-ramp-box"></i> Datos de Envío
+          </h2>
+          <form id="formularioEnvio" class="cuadricula-formulario">
+            <div class="grupo-formulario">
+              <label for="campoNombre">Nombre *</label>
+              <input
+                type="text"
+                class="entrada-formulario"
+                id="campoNombre"
+                required
+                placeholder="Tu Nombre"
+              />
+            </div>
+            <div class="grupo-formulario">
+              <label for="campoApellido">Apellidos *</label>
+              <input
+                type="text"
+                class="entrada-formulario"
+                id="campoApellido"
+                required
+                placeholder="Tus Apellidos"
+              />
+            </div>
+            <div class="grupo-formulario ancho-completo">
+              <label for="campoCorreo">Correo Electrónico *</label>
+              <input
+                type="email"
+                class="entrada-formulario"
+                id="campoCorreo"
+                required
+                placeholder="correo@ejemplo.com"
+              />
+            </div>
+            <div class="grupo-formulario ancho-completo">
+              <label for="campoDireccion">Dirección de Residencia *</label>
+              <input
+                type="text"
+                class="entrada-formulario"
+                id="campoDireccion"
+                required
+                placeholder="Carrera 15 # 10 - 20, Barrio Centenario"
+              />
+            </div>
+            <div class="grupo-formulario">
+              <label for="campoCiudad">Departamento / Ciudad *</label>
+              <input
+                type="text"
+                class="entrada-formulario"
+                id="campoCiudad"
+                required
+                placeholder="Santander / Piedecuesta"
+              />
+            </div>
+            <div class="grupo-formulario">
+              <label for="campoTelefono">Teléfono de Contacto *</label>
+              <input
+                type="tel"
+                class="entrada-formulario"
+                id="campoTelefono"
+                required
+                placeholder="300 123 4567"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="caja-pago">
+          <h2 class="titulo-seccion">
+            <i class="fa-solid fa-credit-card"></i> Método de Pago
+          </h2>
+          <div class="metodos-pago">
+            <div class="opcion-pago">
+              <input
+                type="radio"
+                name="metodo_pago"
+                id="pago_nequi"
+                value="Nequi"
+                checked
+              />
+              <label for="pago_nequi" class="etiqueta-pago">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>Nequi</span>
+              </label>
+            </div>
+
+            <div class="opcion-pago">
+              <input
+                type="radio"
+                name="metodo_pago"
+                id="pago_daviplata"
+                value="Daviplata"
+              />
+              <label for="pago_daviplata" class="etiqueta-pago">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Daviplata</span>
+              </label>
+            </div>
+
+            <div class="opcion-pago">
+              <input
+                type="radio"
+                name="metodo_pago"
+                id="pago_pse"
+                value="PSE"
+              />
+              <label for="pago_pse" class="etiqueta-pago">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>PSE</span>
+              </label>
+            </div>
+
+            <div class="opcion-pago">
+              <input
+                type="radio"
+                name="metodo_pago"
+                id="pago_tarjeta"
+                value="Tarjeta de Crédito/Débito"
+              />
+              <label for="pago_tarjeta" class="etiqueta-pago">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Tarjeta</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="resumen-orden">
+        <div class="caja-pago">
+          <h2 class="titulo-seccion">
+            <i class="fa-solid fa-receipt"></i> Resumen de la Orden
+          </h2>
+
+          <div class="elementos-resumen" id="contenedorElementosResumen">
+          </div>
+
+          <div class="desglose-costos">
+            <div class="fila-costo">
+              <span>Subtotal</span>
+              <span id="valorSubtotal">$0 COP</span>
+            </div>
+            <div class="fila-costo">
+              <span>Envío (Nacional)</span>
+              <span id="valorEnvio">$12,000 COP</span>
+            </div>
+            <div class="fila-costo total">
+              <span>Total:</span>
+              <span id="valorTotal">$0 COP</span>
+            </div>
+          </div>
+
+          <button type="button" class="boton-pagar-ahora" id="botonConfirmarPago">
+            <i class="fa-solid fa-lock"></i> Pagar Pedido
+          </button>
+
+          <div class="insignia-seguridad">
+            <i class="fa-solid fa-shield-halved"></i> Transacción 100% Encriptada y Segura
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <div class="capa-modal-exito" id="modalExito">
+      <div class="tarjeta-modal-exito">
+        <div class="contenedor-icono-exito" id="iconoPagoModal">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h2 class="titulo-exito">¡Pedido Confirmado!</h2>
+        <p class="subtitulo-exito">
+          Gracias <strong id="nombreUsuarioModal">Usuario</strong>, tu pedido ha sido procesado exitosamente mediante
+          <strong id="metodoPagoModal">NEQUI</strong>.
+        </p>
+
+        <div class="detalles-exito">
+          <div class="fila-detalle">
+            <span>Total pagado:</span>
+            <span class="precio-detalle" id="montoTotalModal">$0 COP</span>
+          </div>
+          <div class="fila-detalle">
+            <span>Envío a:</span>
+            <span id="direccionModal">Dirección</span>
+          </div>
+        </div>
+
+        <p class="nota-exito">
+          <i class="fa-solid fa-envelope"></i> Enviaremos la guía de rastreo y los detalles de compra a tu correo electrónico.
+        </p>
+
+        <button type="button" class="boton-cerrar-modal" id="botonCerrarModalExito">
+          Entendido / Volver a la Tienda
+        </button>
+      </div>
+    </div>
+
+    <script src="pago.js"></script>
+  </body>
+</html>

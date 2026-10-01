@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGear | Catálogo Completo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="catalogo.css" />
+    
+</head>
+<body>
+
+    <header>
+        <nav class="barra-navegacion">
+            <a href="index.html" class="logo-marca">FIT<span>GEAR</span></a>
+            <ul class="enlaces-navegacion">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html" class="activo">Catálogo Completo</a></li>
+            </ul>
+            <div class="acciones-navegacion">
+                <button class="boton-abrir-carrito" id="botonAbrirCarrito">
+                    <i class="fa-solid fa-cart-shopping"></i> <span>Carrito</span>
+                    <span class="insignia-carrito" id="contadorCarrito">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenedor-catalogo">
+
+        <aside class="barra-filtros">
+            <div class="titulo-filtros">
+                <span>Filtros</span>
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <div class="grupo-filtro">
+                <label class="etiqueta-filtro">Buscar Camiseta</label>
+                <input type="text" class="entrada-filtro" id="entradaBusqueda" placeholder="Ej: Local, Pro, Jersey...">
+            </div>
+
+            <div class="grupo-filtro">
+                <label class="etiqueta-filtro">Categoría</label>
+                <select class="seleccion-filtro" id="filtroCategoria">
+                    <option value="todos">Todas las disciplinas</option>
+                    <option value="futbol">Fútbol</option>
+                    <option value="baloncesto">Baloncesto</option>
+                </select>
+            </div>
+
+            <div class="grupo-filtro">
+                <label class="etiqueta-filtro">Ordenar Por</label>
+                <select class="seleccion-filtro" id="filtroOrden">
+                    <option value="defecto">Por defecto</option>
+                    <option value="precio-asc">Precio: Menor a Mayor</option>
+                    <option value="precio-desc">Precio: Mayor a Menor</option>
+                    <option value="nombre-asc">Nombre: A - Z</option>
+                    <option value="nombre-desc">Nombre: Z - A</option>
+                </select>
+            </div>
+
+            <div class="grupo-filtro">
+                <label class="etiqueta-filtro">Precio Máximo</label>
+                <input type="range" class="entrada-filtro" id="rangoPrecio" min="50000" max="150000" step="5000" value="150000">
+                <div class="visor-rango-precio">
+                    <span>$50.000</span>
+                    <span id="etiquetaPrecioMaximo">$150.000 COP</span>
+                </div>
+            </div>
+
+            <button class="boton-limpiar-filtros" id="botonLimpiarFiltros">
+                <i class="fa-solid fa-rotate-left"></i> Limpiar Filtros
+            </button>
+        </aside>
+
+        <section class="principal-catalogo">
+            <div class="encabezado-catalogo">
+                <div>
+                    <h1>Catálogo Oficial</h1>
+                    <span class="contador-resultados" id="contadorResultados">Cargando productos...</span>
+                </div>
+            </div>
+
+            <div class="cuadricula-productos" id="cuadriculaCatalogo"></div>
+        </section>
+
+    </main>
+
+    <div class="capa-modal" id="modalProducto">
+        <div class="tarjeta-modal">
+            <button class="boton-cerrar-modal" id="botonCerrarModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="imagen-modal">
+                <img id="imagenModal" src="" alt="Producto">
+            </div>
+            <div class="detalles-modal">
+                <h2 class="titulo-modal" id="tituloModal">Nombre</h2>
+                <div class="precio-modal" id="precioModal">$0 COP</div>
+                <p class="descripcion-modal" id="descripcionModal">Descripción</p>
+
+                <div>
+                    <label class="etiqueta-opcion">Selecciona tu Talla:</label>
+                    <div class="selector-talla" id="selectorTalla">
+                        <button class="boton-talla activo" data-talla="S">S</button>
+                        <button class="boton-talla" data-talla="M">M</button>
+                        <button class="boton-talla" data-talla="L">L</button>
+                        <button class="boton-talla" data-talla="XL">XL</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="etiqueta-opcion">Cantidad:</label>
+                    <div class="control-cantidad">
+                        <div class="caja-cantidad">
+                            <button class="boton-cantidad" id="botonRestarCantidad">-</button>
+                            <span class="valor-cantidad" id="valorCantidad">1</span>
+                            <button class="boton-cantidad" id="botonSumarCantidad">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="etiqueta-opcion">Personalización (Nombre y Número / Opcional):</label>
+                    <input type="text" class="entrada-personalizacion" id="entradaPersonalizacion" placeholder="Ej: NELSON #24">
+                </div>
+
+                <button class="boton-agregar-carrito-modal" id="botonAgregarCarritoModal">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="capa-carrito" id="capaCarrito"></div>
+    <aside class="panel-carrito" id="panelCarrito">
+        <div class="encabezado-carrito">
+            <h3>TU CARRITO</h3>
+            <button class="boton-cerrar-carrito" id="botonCerrarCarrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="contenedor-elementos-carrito" id="elementosCarrito"></div>
+        <div class="pie-carrito">
+            <div class="fila-total-carrito">
+                <span>TOTAL:</span>
+                <span id="montoTotalCarrito">$0 COP</span>
+            </div>
+            <button class="boton-finalizar-compra" id="botonFinalizarCompra">Finalizar Compra Segura</button>
+        </div>
+    </aside>
+
+    <script src="catalogo.js"></script>
+</body>
+</html>

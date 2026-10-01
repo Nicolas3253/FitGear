@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitGear | Indumentaria Deportiva Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="index.css" />
+    
+  </head>
+  <body>
+    <header>
+      <nav class="barra-navegacion">
+        <a href="#" class="logo-marca">FIT<span>GEAR</span></a>
+
+        <ul class="enlaces-navegacion" id="enlacesNavegacion">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo Completo</a></li>
+          <li><a href="#garantia">Garantía</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="acciones-navegacion">
+          <div id="zonaNavegacionAutenticacion">
+            <div class="botones-autenticacion" id="botonesAutenticacion">
+              <button class="boton-autenticacion-ingresar" id="botonAbrirIngreso">Ingresar</button>
+              <button class="boton-autenticacion-registro" id="botonAbrirRegistro">
+                Registro
+              </button>
+            </div>
+          </div>
+
+          <button class="boton-abrir-carrito" id="botonAbrirCarrito">
+            <i class="fa-solid fa-cart-shopping"></i> <span>Carrito</span>
+            <span class="contador-carrito" id="contadorCarrito">0</span>
+          </button>
+          <button class="botton-menu-desplegable" id="botonMenuDesplegable">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="capa-autenticacion" id="modalAutenticacion">
+      <div class="contenedor-autenticacion">
+        <button class="cerrar-modal" id="botonCerrarAutenticacion">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="pestanas-autenticacion">
+          <button class="pestana-autenticacion activo" id="pestanaIngreso">Iniciar Sesión</button>
+          <button class="pestana-autenticacion" id="pestanaRegistro">Registrarse</button>
+        </div>
+
+        <form class="formulario-autenticacion activo" id="formularioIngreso">
+          <div class="grupo-formulario">
+            <label>Correo Electrónico</label>
+            <input
+              type="email"
+              class="campo-formulario"
+              id="correoIngreso"
+              placeholder="usuario@correo.com"
+              required
+            />
+          </div>
+          <div class="grupo-formulario">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              class="campo-formulario"
+              id="claveIngreso"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="boton-enviar-autenticacion">
+            Ingresar a mi Cuenta
+          </button>
+        </form>
+
+        <form class="formulario-autenticacion" id="formularioRegistro">
+          <div class="grupo-formulario">
+            <label>Nombre Completo</label>
+            <input
+              type="text"
+              class="campo-formulario"
+              id="nombreRegistro"
+              placeholder="Tu Nombre"
+              required
+            />
+          </div>
+          <div class="grupo-formulario">
+            <label>Correo Electrónico</label>
+            <input
+              type="email"
+              class="campo-formulario"
+              id="correoRegistro"
+              placeholder="usuario@correo.com"
+              required
+            />
+          </div>
+          <div class="grupo-formulario">
+            <label>Contraseña</label>
+            <input
+              type="password"
+              class="campo-formulario"
+              id="claveRegistro"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="boton-enviar-autenticacion">Crear Cuenta</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="seccion-principal" id="inicio">
+      <div class="contenido-principal">
+        <span class="etiqueta-principal">Rendimiento & Pasión</span>
+        <h1 class="titulo-principal">INDUMENTARIA DEPORTIVA DE ALTA GAMA</h1>
+        <p class="descripcion-principal">
+          Camisetas técnicas y conjuntos de Fútbol y Baloncesto diseñados para
+          ofrecer máximo confort y estilo en la cancha.
+        </p>
+        <a href="#catalogo" class="boton-principal">Explorar Colección</a>
+      </div>
+    </section>
+
+    <section class="banner-confianza" id="garantia">
+      <div class="elemento-confianza">
+        <div class="icono-confianza"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="texto-confianza">
+          <h4>Pagos 100% Seguros</h4>
+          <p>Integración con Nequi, Daviplata y PSE.</p>
+        </div>
+      </div>
+      <div class="elemento-confianza">
+        <div class="icono-confianza"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="texto-confianza">
+          <h4>Envíos Nacionales</h4>
+          <p>Seguimiento de tu pedido en todo momento.</p>
+        </div>
+      </div>
+      <div class="elemento-confianza">
+        <div class="icono-confianza"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="texto-confianza">
+          <h4>Calidad Garantizada</h4>
+          <p>Textiles transpirables de secado rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-catalogo" id="catalogo">
+      <div class="encabezado-seccion">
+        <div class="titulo-seccion">
+          <h2>CATÁLOGO OFICIAL</h2>
+          <p>
+            Haz clic en cualquier producto para ver tallas y personalizar tu
+            pedido.
+          </p>
+        </div>
+        <div class="botones-filtro">
+          <button class="boton-filtro activo" data-filtro="todos">Todos</button>
+          <button class="boton-filtro" data-filtro="futbol">Fútbol</button>
+          <button class="boton-filtro" data-filtro="baloncesto">
+            Baloncesto
+          </button>
+        </div>
+      </div>
+
+      <div class="cuagricula-productos" id="contenedorProductos">
+      </div>
+    </section>
+
+    <div class="capa-modal" id="modalProducto">
+      <div class="contenedor-modal">
+        <button class="cerrar-modal" id="botonCerrarModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="contenedor-imagen-modal">
+          <img id="imagenModalProducto" src="" alt="Producto FitGear" />
+        </div>
+        <div class="detalles-modal">
+          <h2 class="titulo-modal" id="tituloModalProducto">
+            Nombre del Producto
+          </h2>
+          <div class="precio-modal" id="precioModalProducto">$0</div>
+          <p class="descripcion-modal" id="descripcionModalProducto">
+            Descripción detallada...
+          </p>
+
+          <div class="grupo-opcion">
+            <span class="etiqueta-opcion">Selecciona tu Talla:</span>
+            <div class="selector-talla">
+              <button class="boton-talla seleccionado">S</button>
+              <button class="boton-talla">M</button>
+              <button class="boton-talla">L</button>
+              <button class="boton-talla">XL</button>
+            </div>
+          </div>
+
+          <div class="grupo-opcion">
+            <span class="etiqueta-opcion">Cantidad:</span>
+            <div class="control-cantidad">
+              <button class="boton-cantidad" id="botonDisminuirCantidad">-</button>
+              <input
+                type="text"
+                class="campo-cantidad"
+                id="campoCantidadProducto"
+                value="1"
+                readonly
+              />
+              <button class="boton-cantidad" id="botonAumentarCantidad">+</button>
+            </div>
+          </div>
+
+          <div class="grupo-opcion">
+            <span class="etiqueta-opcion"
+              >Personalización (Nombre y Número / Opcional):</span
+            >
+            <input
+              type="text"
+              class="campo-personalizado"
+              id="campoDorsalPersonalizado"
+              placeholder="Ej: NELSON #24"
+            />
+          </div>
+
+          <button class="boton-modal-agregar" id="botonAgregarAlCarritoDesdeModal">
+            Añadir al Carrito
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="capa-carrito" id="capaCarrito"></div>
+    <aside class="panel-carrito" id="panelCarrito">
+      <div class="encabezado-carrito">
+        <h3>TU CARRITO</h3>
+        <button class="cerrar-carrito" id="botonCerrarCarrito">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="contenedor-elementos-carrito" id="elementosCarrito"></div>
+      <div class="pie-carrito">
+        <div class="fila-total-carrito">
+          <span>TOTAL:</span>
+          <span id="montoTotalCarrito">$0 COP</span>
+        </div>
+        <button class="boton-finalizar-compra" id="botonFinalizarCompra">
+          Finalizar Compra Segura
+        </button>
+      </div>
+    </aside>
+
+    <footer id="contacto">
+      <div class="contenido-pie">
+        <div class="columna-pie">
+          <h5>FITGEAR</h5>
+          <p>
+            Plataforma e-commerce especializada en indumentaria deportiva para
+            deportistas y aficionados exigentes.
+          </p>
+        </div>
+        <div class="columna-pie">
+          <h5>Categorías</h5>
+          <ul>
+            <li>Camisetas de Fútbol</li>
+            <li>Conjuntos de Baloncesto</li>
+            <li>Ediciones Especiales</li>
+          </ul>
+        </div>
+        <div class="columna-pie">
+          <h5>Contacto & Soporte</h5>
+          <p><i class="fa-solid fa-location-dot"></i> Piedecuesta, Santander</p>
+          <p><i class="fa-solid fa-envelope"></i> contacto@fitgear.com.co</p>
+          <p><i class="fa-solid fa-phone"></i> +57 300 000 0000</p>
+        </div>
+      </div>
+      <div class="parte-inferior-pie">
+        <p>
+          &copy; 2026 FitGear - Desarrollado para Proyecto Formativo SENA (CIMI
+          Piedecuesta).
+        </p>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
